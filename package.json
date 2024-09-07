@@ -1,0 +1,30 @@
+{
+  "name": "api-plataforma-blogs",
+  "version": "1.0.0",
+  "description": "Cree una API RESTful para una plataforma de blogs personal",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KingNawl/API-Plataforma-Blogs.git"
+  },
+  "author": "kingnawl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KingNawl/API-Plataforma-Blogs/issues"
+  },
+  "homepage": "https://github.com/KingNawl/API-Plataforma-Blogs#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.11.0"
+  }
+}
