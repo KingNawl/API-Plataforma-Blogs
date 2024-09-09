@@ -107,13 +107,20 @@ router.put("/:idPost", async (req, res) => {
 router.delete("/:idPost", async (req, res) => {
   const { idPost } = req.params;
   let connection;
+  let query;
 
   try {
     connection = await connectDB();
     await connection.beginTransaction();
 
+    //Comprobar si existe el post
+    query = "SELECT * FROM posts WHERE id = ?";
+    const [post] = await connection.query(query, [idPost]);
+
+    if (!post.length) return res.status(404).json({ error: "Post no encontrado" });
+
     //Borrar post
-    let query = "DELETE FROM posts WHERE id = ?";
+    query = "DELETE FROM posts WHERE id = ?";
     await connection.query(query, [idPost]);
 
     await connection.commit();
