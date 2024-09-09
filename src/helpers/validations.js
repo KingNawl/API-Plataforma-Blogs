@@ -1,14 +1,14 @@
 export default class Validations {
-    static title(tittle){
-        if(!tittle){
+    static title(title){
+        if(!title){
             throw new Error('El titulo es requerido');
         }
 
-        if(typeof tittle !== 'string'){
+        if(typeof title !== 'string'){
             throw new Error('El titulo debe ser un string');
         }
 
-        if(tittle.length > 50){
+        if(title.length > 50){
             throw new Error('El titulo no debe superar los 50 caracteres');
         }
     }
@@ -63,5 +63,21 @@ export default class Validations {
                 throw new Error('Los tags no deben superar los 20 caracteres');
             }
         })
+    }
+
+    static idPost(idPost){
+        if(!idPost){
+            throw new Error('El id del post es requerido');
+        }
+
+        if(typeof idPost !== 'number'){
+            throw new Error('El id del post debe ser un numero');
+        }
+    }
+
+    static term(term){
+        if(term && typeof term !== 'string'){
+            throw new Error('El termino de busqueda debe ser un string');
+        }
     }
 }
